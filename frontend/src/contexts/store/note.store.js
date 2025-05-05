@@ -13,7 +13,7 @@ export const useNoteStore = create((set) => ({
       },
 
     fetchNotes: async () => {
-        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/notes`);
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/notes`);
         const data = await res.json();
         set({notes:data.data})
     },
@@ -22,7 +22,7 @@ export const useNoteStore = create((set) => ({
         if(!newNote.title || newNote.type === "Type" || !newNote.content){
             return ({success:false, message:"Please Fill in All Fields"})
         }
-        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/notes`,{
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/notes`,{
             method:"POST",
             headers: {
                 "Content-Type":"application/json"
@@ -35,7 +35,7 @@ export const useNoteStore = create((set) => ({
     },
 
     deleteNote: async (id) => {
-        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/notes/${id}`,{
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/notes/${id}`,{
             method: 'DELETE'
         });
         const data = await res.json()
@@ -49,7 +49,7 @@ export const useNoteStore = create((set) => ({
     },
 
     editNote: async (id, updatedNote) => {
-        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/notes/${id}`,{
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/notes/${id}`,{
             method:"PUT",
             headers:{"Content-type":"application/json"},
             body: JSON.stringify(updatedNote)
