@@ -14,9 +14,11 @@ const __dirname = path.resolve()
 app.use(express.json())
 
 app.use(cors({
-  origin: 'https://note-app-2-6yq1.vercel.app', // use your actual frontend URL here
-  credentials: true
-}))
+  origin: 'https://note-app-2-6yq1.vercel.app',  // your frontend domain
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type'],
+  credentials: true,
+}));
 
 app.use('/api/notes', noteRoutes)
 
