@@ -12,7 +12,7 @@ const __dirname = path.resolve();
 
 app.use(express.json())
 
-app.use('/api/notes', noteRoutes)
+app.use(`${import.meta.env.VITE_BACKEND_URL}/notes`, noteRoutes)
   
 
 app.listen(5000, ()=> {
