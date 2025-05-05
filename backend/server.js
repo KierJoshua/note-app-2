@@ -14,7 +14,7 @@ const __dirname = path.resolve()
 app.use(express.json())
 
 app.use(cors({
-  origin: 'https://note-app-2-6yq1.vercel.app/', // use your actual frontend URL here
+  origin: 'https://note-app-2-6yq1.vercel.app', // use your actual frontend URL here
   credentials: true
 }))
 
