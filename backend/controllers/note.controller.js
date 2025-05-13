@@ -15,7 +15,7 @@ export const getNotes = async(req,res) => {
 export const createNote = async(req,res) => {
     const getNote = req.body;
     if(!getNote.type || !getNote.title || !getNote.content){
-        return res.status(400),json({success:false,message:"Please provide all fields"})
+        return res.status(400).json({success:false,message:"Please provide all fields"})
     }
 
     const newNote = new Note(getNote)
